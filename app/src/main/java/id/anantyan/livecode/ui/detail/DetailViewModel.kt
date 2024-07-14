@@ -29,7 +29,9 @@ class DetailViewModel @Inject constructor(
             repository.detailPage(id).collect {
                 _detailPage.value = it
             }
+        }
 
+        viewModelScope.launch {
             repository.creditsPage(id).collect {
                 _creditsPage.value = it
             }
